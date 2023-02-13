@@ -33,8 +33,8 @@ app.post("/send-email", cors(), async (req, res) => {
  
 
     const mailOptions = {
-        from: email,
-        to: "pauloantonio785@gmail.com",
+        from: process.env.USERNAME,
+        to: email,
         subject: subject,
         text: text,
         html: html ? html : null,
