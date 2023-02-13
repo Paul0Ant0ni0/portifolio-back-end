@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const nodemailer = require("nodemailer");
@@ -24,8 +25,8 @@ app.post("/send-email", cors(), async (req, res) => {
         port: 587,
         secure: false,
         auth: {
-          user: "pauloantonio785@gmail.com",
-          pass: "fearlpbmdiofemik",
+          user: process.env.USERNAME,
+          pass: process.env.PASSWORD,
         },
       });
 
@@ -50,7 +51,7 @@ app.post("/send-email", cors(), async (req, res) => {
         erro: false,
         mensagem: "Email enviado com sucesso"
 
-    })
+    });
 });
 
 app.listen(3000); 
